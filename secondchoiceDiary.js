@@ -6,6 +6,16 @@ let upchoice = () => [
   '이 방에서는 더 얻을 정보가 없다. 다른 곳을 향해 조사를 계속한다.',
 ];
 
+// 공통 선택지 복원 함수
+function resetToOriginalChoices(storyText) {
+  updateChoices(upchoice());
+  setSecondChoiceHandlers();
+  enableChoices(); // 선택지 활성화
+  typeWriter(storyText, 0, function () {
+    console.log('Returned to original diary choices.');
+  });
+}
+
 function setDiaryPageHandlers(handlerFunction) {
   const choices = document.querySelectorAll('#adventure-container .choice');
   choices.forEach((choice, index) => {
@@ -51,12 +61,7 @@ function handleDiaryNextChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    updateChoices(upchoice());
-    setSecondChoiceHandlers();
-    enableChoices(); // 선택지 활성화
-    typeWriter(storyText, 0, function () {
-      console.log('Returned to original diary choices.');
-    });
+    resetToOriginalChoices(storyText);
   }
 }
 
@@ -70,12 +75,7 @@ function handleDiaryNextPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    updateChoices(upchoice());
-    setSecondChoiceHandlers();
-    enableChoices(); // 선택지 활성화
-    typeWriter(storyText, 0, function () {
-      console.log('Returned to original diary choices.');
-    });
+    resetToOriginalChoices(storyText);
   }
 }
 
@@ -88,12 +88,7 @@ function handleDiaryThirdPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    updateChoices(upchoice());
-    setSecondChoiceHandlers();
-    enableChoices(); // 선택지 활성화
-    typeWriter(storyText, 0, function () {
-      console.log('Returned to original diary choices.');
-    });
+    resetToOriginalChoices(storyText);
   }
 }
 
@@ -106,12 +101,7 @@ function handleDiaryFourthPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    updateChoices(upchoice());
-    setSecondChoiceHandlers();
-    enableChoices(); // 선택지 활성화
-    typeWriter(storyText, 0, function () {
-      console.log('Returned to original diary choices.');
-    });
+    resetToOriginalChoices(storyText);
   }
 }
 
@@ -119,19 +109,9 @@ function handleDiaryFinalPageChoice(choice) {
   if (choice === 1) {
     const storyText =
       '글귀가 적혀있다. <br>당신은 개발자의 일기를 전부 읽었다.<br>업적 : 남의 일기는 읽으면 안돼 를 획득했다';
-    updateChoices(upchoice());
-    setSecondChoiceHandlers();
-    enableChoices(); // 선택지 활성화
-    typeWriter(storyText, 0, function () {
-      console.log('Returned to original diary choices.');
-    });
+    resetToOriginalChoices(storyText);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    updateChoices(upchoice());
-    setSecondChoiceHandlers();
-    enableChoices(); // 선택지 활성화
-    typeWriter(storyText, 0, function () {
-      console.log('Returned to original diary choices.');
-    });
+    resetToOriginalChoices(storyText);
   }
 }
