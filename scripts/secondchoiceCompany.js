@@ -1,9 +1,3 @@
-// 오디오 파일을 재생하는 함수
-function playSelectSound() {
-  const audio = new Audio('select.mp3');
-  audio.play();
-}
-
 function handleCompanyChoice() {
   disableChoices(); // 선택지 비활성화
   playSelectSound(); // 사운드 재생

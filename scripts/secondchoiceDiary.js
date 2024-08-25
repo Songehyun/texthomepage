@@ -1,16 +1,3 @@
-function playSelectSound() {
-  const audio = new Audio('select.mp3');
-  audio.volume = 0.3; // 음량 30%
-  audio
-    .play()
-    .then(() => {
-      console.log('Sound played successfully');
-    })
-    .catch((error) => {
-      console.error('Failed to play sound:', error);
-    });
-}
-
 // 공통 선택지 세트를 변수로 저장
 let upchoice = () => [
   '가장 눈에 띄는 서류를 조사한다.',

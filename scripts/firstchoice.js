@@ -16,19 +16,6 @@ function typeWriter(text, i, fnCallback) {
   }
 }
 
-function playSelectSound() {
-  const audio = new Audio('select.mp3');
-  audio.volume = 0.3; // 음량 30%
-  audio
-    .play()
-    .then(() => {
-      console.log('Sound played successfully');
-    })
-    .catch((error) => {
-      console.error('Failed to play sound:', error);
-    });
-}
-
 function chooseAdventure(choice) {
   disableChoices(); // 선택지 비활성화
 

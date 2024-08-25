@@ -8,7 +8,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background-image: url('homepagebackground.png');
+  background-image: url('../images/homepagebackground.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
