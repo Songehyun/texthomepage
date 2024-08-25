@@ -1,5 +1,12 @@
+// 오디오 파일을 재생하는 함수
+function playSelectSound() {
+  const audio = new Audio('select.mp3');
+  audio.play();
+}
+
 function handleCompanyChoice() {
   disableChoices(); // 선택지 비활성화
+  playSelectSound(); // 사운드 재생
 
   const storyText = '당신은 "소개 주체가 회사였다면" 이라는 문을 열고 들어갔다. <br>야근과 거짓말의 냄새가 난다.';
 
@@ -13,6 +20,7 @@ function handleCompanyChoice() {
 
 function handleCompanyChoiceSelection(choice) {
   disableChoices(); // 선택지 비활성화
+  playSelectSound(); // 사운드 재생
 
   let storyText;
   if (choice === 1) {
@@ -51,6 +59,7 @@ function handleCompanyNoticeChoice() {
 
 function handleCompanyNoticeSelection(choice) {
   disableChoices(); // 선택지 비활성화
+  playSelectSound(); // 사운드 재생
 
   if (choice === 1) {
     showCompanyNotices();
@@ -87,6 +96,7 @@ function setNoticeHandlers(type) {
   const choices = document.querySelectorAll('#adventure-container .choice');
   choices.forEach((choice, index) => {
     choice.onclick = () => {
+      playSelectSound(); // 사운드 재생
       handleNoticeSelection(type, index + 1);
     };
   });
@@ -96,9 +106,29 @@ function handleNoticeSelection(type, choice) {
   disableChoices(); // 선택지 비활성화
 
   let storyText;
-  if (choice >= 1 && choice <= 4) {
-    storyText = `${type} ${choice}이야`;
-  } else if (choice === 5) {
+  if (type === '공지') {
+    if (choice === 1) {
+      storyText = '이 홈페이지를 만드는 데 소요된 시간은 두자리수 입니다.';
+    } else if (choice === 2) {
+      storyText = '개발자의 만족도는 5점만점 중 5점입니다.';
+    } else if (choice === 3) {
+      storyText = '코드는 엉망이었지만 나름 다듬은 코드입니다.';
+    } else if (choice === 4) {
+      storyText = '안에 들어가는 내용들은 2일 밤낮을 고민한 내용들입니다.';
+    }
+  } else if (type === '공시') {
+    if (choice === 1) {
+      storyText = '배경음악도 넣으려고 했지만 어울리는걸 못찾아서 포기했습니다.';
+    } else if (choice === 2) {
+      storyText = '이 홈페이지의 자랑할 점은 나의 색이 잘 녹아있다는 점입니다.';
+    } else if (choice === 3) {
+      storyText = '여기까지 글을 쓰고 다음은 사용할 효과음을 찾으러 가야합니다.';
+    } else if (choice === 4) {
+      storyText = '공지 4번은 거짓말 입니다.';
+    }
+  }
+
+  if (choice === 5) {
     // 선택지와 핸들러를 먼저 설정하고 대사를 출력
     updateChoices(['회사공지', '공시자료', '돌아가기']);
     setCompanyNoticeHandlers();

@@ -16,6 +16,19 @@ function typeWriter(text, i, fnCallback) {
   }
 }
 
+function playSelectSound() {
+  const audio = new Audio('select.mp3');
+  audio.volume = 0.3; // 음량 30%
+  audio
+    .play()
+    .then(() => {
+      console.log('Sound played successfully');
+    })
+    .catch((error) => {
+      console.error('Failed to play sound:', error);
+    });
+}
+
 function chooseAdventure(choice) {
   disableChoices(); // 선택지 비활성화
 
@@ -57,7 +70,10 @@ function chooseAdventure(choice) {
 function setInitialChoiceHandlers() {
   const choices = document.querySelectorAll('#adventure-container .choice');
   choices.forEach((choice, index) => {
-    choice.onclick = () => chooseAdventure(index + 1);
+    choice.onclick = () => {
+      playSelectSound(); // 사운드 재생
+      chooseAdventure(index + 1);
+    };
   });
 }
 

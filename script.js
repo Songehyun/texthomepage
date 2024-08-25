@@ -11,13 +11,17 @@ function updateChoices(newChoices) {
       newChoiceElement.classList.add('choice');
       newChoiceElement.textContent = choiceText;
       newChoiceElement.style.display = 'block';
+      newChoiceElement.onclick = () => {
+        playSelectSound(); // 사운드 재생
+        chooseAdventure(index + 1);
+      };
       document.getElementById('adventure-container').appendChild(newChoiceElement);
     }
   });
 
   // 나머지 선택지 숨기기
   for (let i = newChoices.length; i < choiceElements.length; i++) {
-    choiceElements[i].style.display = 'none';
+    choiceElements[i].style.display = 'none'; // 올바르게 수정된 부분
   }
 }
 

@@ -26,6 +26,9 @@ function handleSecondChoice(choice) {
 function setSecondChoiceHandlers() {
   const choices = document.querySelectorAll('#adventure-container .choice');
   choices.forEach((choice, index) => {
-    choice.onclick = () => handleSecondChoice(index + 1);
+    choice.onclick = () => {
+      playSelectSound(); // 사운드 재생
+      handleSecondChoice(index + 1);
+    };
   });
 }

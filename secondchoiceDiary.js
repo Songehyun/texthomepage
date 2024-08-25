@@ -1,3 +1,16 @@
+function playSelectSound() {
+  const audio = new Audio('select.mp3');
+  audio.volume = 0.3; // 음량 30%
+  audio
+    .play()
+    .then(() => {
+      console.log('Sound played successfully');
+    })
+    .catch((error) => {
+      console.error('Failed to play sound:', error);
+    });
+}
+
 // 공통 선택지 세트를 변수로 저장
 let upchoice = () => [
   '가장 눈에 띄는 서류를 조사한다.',
@@ -24,6 +37,7 @@ function setDiaryPageHandlers(handlerFunction) {
     // 핸들러 설정 시 로그 추가
     console.log(`Setting handler for choice ${index + 1}`);
     choice.onclick = () => {
+      playSelectSound(); // 사운드 재생
       console.log(`Choice ${index + 1} clicked`);
       handlerFunction(index + 1);
     };
@@ -35,7 +49,7 @@ function handleDiaryStep(storyText, nextHandler, choices) {
 
   // 선택지 업데이트 및 핸들러 설정
   updateChoices(choices);
-  setDiaryPageHandlers(nextHandler);
+  setDiaryPageHandlers(nextHandler); // 핸들러 설정 (사운드 재생은 선택지 클릭 시만)
   enableChoices(); // 선택지 활성화
 
   // 대사 출력
