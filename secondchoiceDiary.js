@@ -6,6 +6,8 @@ let upchoice = () => [
   '이 방에서는 더 얻을 정보가 없다. 다른 곳을 향해 조사를 계속한다.',
 ];
 
+let closeD = (storyText = '당신은 일기를 덮고 다른 곳을 조사하기로 했다.');
+
 // 공통 선택지 복원 함수
 function resetToOriginalChoices(storyText) {
   updateChoices(upchoice());
@@ -60,7 +62,7 @@ function handleDiaryNextChoice(choice) {
       '당신은 충분히 많이 읽었다.',
     ]);
   } else if (choice === 2) {
-    const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
+    closeD;
     resetToOriginalChoices(storyText);
   }
 }
@@ -74,7 +76,7 @@ function handleDiaryNextPageChoice(choice) {
       '당신은 충분히 많이 읽었다.',
     ]);
   } else if (choice === 2) {
-    const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
+    closeD;
     resetToOriginalChoices(storyText);
   }
 }
@@ -87,7 +89,7 @@ function handleDiaryThirdPageChoice(choice) {
       '당신은 이제 그만 일기를 덮기로 했다.',
     ]);
   } else if (choice === 2) {
-    const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
+    closeD;
     resetToOriginalChoices(storyText);
   }
 }
@@ -100,7 +102,7 @@ function handleDiaryFourthPageChoice(choice) {
       '당신은 일기 뒷면에는 관심이 없다.',
     ]);
   } else if (choice === 2) {
-    const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
+    closeD;
     resetToOriginalChoices(storyText);
   }
 }
@@ -111,7 +113,7 @@ function handleDiaryFinalPageChoice(choice) {
       '글귀가 적혀있다. <br>당신은 개발자의 일기를 전부 읽었다.<br>업적 : 남의 일기는 읽으면 안돼 를 획득했다';
     resetToOriginalChoices(storyText);
   } else if (choice === 2) {
-    const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
+    closeD;
     resetToOriginalChoices(storyText);
   }
 }
