@@ -31,12 +31,18 @@ function chooseAdventure(choice) {
     storyText =
       '당신은 개발자라고 쓰여진 방을 찾았다. 방문을 열고 들어가니 홈페이지 개발자에 대한 다양한 정보들이 있었다.';
 
+    // 새로운 선택지 설정
     updateChoices([
       '가장 눈에 띄는 서류를 조사한다.',
       '개발자의 일기를 조사한다.',
       '개발자의 작품 상자를 조사한다.',
       '이 방에서는 더 얻을 정보가 없다. 다른 곳을 향해 조사를 계속한다.',
     ]);
+
+    // setSecondChoiceHandlers를 호출하기 전에 storyText 출력
+    typeWriter(storyText, 0, function () {
+      console.log('Choice 4 typing complete.');
+    });
 
     setSecondChoiceHandlers(); // script.js에서 정의된 핸들러 설정
     return; // 선택지 업데이트 후 종료
