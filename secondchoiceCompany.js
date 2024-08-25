@@ -40,7 +40,7 @@ function handleCompanyNoticeChoice() {
 
   const storyText = '여기서 회사 공지와 공고를 볼 수 있어';
 
-  updateChoices(['회사공지', '공시자료']);
+  updateChoices(['회사공지', '공시자료', '원래 선택지로 돌아가기']);
 
   typeWriter(storyText, 0, function () {
     setCompanyNoticeHandlers();
@@ -56,6 +56,16 @@ function handleCompanyNoticeSelection(choice) {
     storyText = '이게 회사공지야';
   } else if (choice === 2) {
     storyText = '이게 공시자료야';
+  } else if (choice === 3) {
+    storyText = '원래 선택지로 돌아왔어';
+    typeWriter(storyText, 0, function () {
+      // 이전 스토리를 출력하지 않고 바로 선택지로 돌아가게 설정
+      updateChoices(['회사간단소개', '회사원의삶', '회사의새로운소식', '회사에서만든작품', '회사공지']);
+      setCompanyChoiceHandlers();
+      enableChoices(); // 선택지 활성화
+      console.log('Returned to original company choices.');
+    });
+    return;
   }
 
   typeWriter(storyText, 0, function () {

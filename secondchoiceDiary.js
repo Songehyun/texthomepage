@@ -21,20 +21,14 @@ function setDiaryPageHandlers(handlerFunction) {
 function handleDiaryStep(storyText, nextHandler, choices) {
   disableChoices(); // 선택지 비활성화
 
-  // 선택지 업데이트
+  // 선택지 업데이트 및 핸들러 설정
   updateChoices(choices);
+  setDiaryPageHandlers(nextHandler);
+  enableChoices(); // 선택지 활성화
 
-  // 기존 핸들러 제거
-  const choicesElements = document.querySelectorAll('#adventure-container .choice');
-  choicesElements.forEach((choice) => {
-    choice.onclick = null; // 기존 핸들러 제거
-  });
-
-  // 대사 출력 후 핸들러 설정
+  // 대사 출력
   typeWriter(storyText, 0, function () {
-    console.log('Setting next handler');
-    setDiaryPageHandlers(nextHandler); // 다음 핸들러 설정
-    enableChoices(); // 선택지 활성화
+    console.log('Story text typing complete.');
   });
 }
 
@@ -57,7 +51,12 @@ function handleDiaryNextChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    handleDiaryStep(storyText, upchoice());
+    updateChoices(upchoice());
+    setSecondChoiceHandlers();
+    enableChoices(); // 선택지 활성화
+    typeWriter(storyText, 0, function () {
+      console.log('Returned to original diary choices.');
+    });
   }
 }
 
@@ -71,7 +70,12 @@ function handleDiaryNextPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    handleDiaryStep(storyText, setSecondChoiceHandlers, upchoice());
+    updateChoices(upchoice());
+    setSecondChoiceHandlers();
+    enableChoices(); // 선택지 활성화
+    typeWriter(storyText, 0, function () {
+      console.log('Returned to original diary choices.');
+    });
   }
 }
 
@@ -84,7 +88,12 @@ function handleDiaryThirdPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    handleDiaryStep(storyText, setSecondChoiceHandlers, upchoice());
+    updateChoices(upchoice());
+    setSecondChoiceHandlers();
+    enableChoices(); // 선택지 활성화
+    typeWriter(storyText, 0, function () {
+      console.log('Returned to original diary choices.');
+    });
   }
 }
 
@@ -97,7 +106,12 @@ function handleDiaryFourthPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    handleDiaryStep(storyText, setSecondChoiceHandlers, upchoice());
+    updateChoices(upchoice());
+    setSecondChoiceHandlers();
+    enableChoices(); // 선택지 활성화
+    typeWriter(storyText, 0, function () {
+      console.log('Returned to original diary choices.');
+    });
   }
 }
 
@@ -105,9 +119,19 @@ function handleDiaryFinalPageChoice(choice) {
   if (choice === 1) {
     const storyText =
       '글귀가 적혀있다. <br>당신은 개발자의 일기를 전부 읽었다.<br>업적 : 남의 일기는 읽으면 안돼 를 획득했다';
-    handleDiaryStep(storyText, setSecondChoiceHandlers, upchoice());
+    updateChoices(upchoice());
+    setSecondChoiceHandlers();
+    enableChoices(); // 선택지 활성화
+    typeWriter(storyText, 0, function () {
+      console.log('Returned to original diary choices.');
+    });
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    handleDiaryStep(storyText, setSecondChoiceHandlers, upchoice());
+    updateChoices(upchoice());
+    setSecondChoiceHandlers();
+    enableChoices(); // 선택지 활성화
+    typeWriter(storyText, 0, function () {
+      console.log('Returned to original diary choices.');
+    });
   }
 }
