@@ -27,10 +27,15 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  user-select: none;
 }
 
 .choice:hover {
   background-color: #e0e0e0;
+}
+
+#story-text {
+  user-select: none; /* 선택 방지 */
 }
 
 @media only screen and (max-width: 768px) {
