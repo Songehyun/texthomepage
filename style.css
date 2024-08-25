@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'PFStardust';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/PFStardust.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -9,15 +16,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
+  font-family: 'PFStardust', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5; /* 행간 조정 */
 }
 
 #adventure-container {
   width: 60%;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8); /* 반투명 배경 */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: auto; /* 컨테이너 내부 스크롤 가능 */
+  max-height: 100vh; /* 최대 높이 설정 */
+  margin-top: 20px; /* 화면 상단과의 간격 확보 */
+}
+
+#adventure-container::-webkit-scrollbar {
+  display: none; /* 스크롤 바 숨기기 */
 }
 
 .choice {
@@ -28,6 +44,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
   user-select: none;
+  line-height: 1.5; /* 선택지의 행간 조정 */
 }
 
 .choice:hover {
@@ -36,6 +53,7 @@ body {
 
 #story-text {
   user-select: none; /* 선택 방지 */
+  line-height: 1.5; /* 스토리 텍스트의 행간 조정 */
 }
 
 @media only screen and (max-width: 768px) {
@@ -46,13 +64,39 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    background-color: rgb(41, 25, 42);
   }
 
   #adventure-container {
     width: 100%;
     padding: 15px;
-    background-color: #ffffff;
+    background-color: rgb(41, 25, 42); /* 배경색 변경 */
+    color: #ffffff; /* 텍스트 색상 흰색으로 변경 */
     box-shadow: none;
     border-radius: 0;
+    overflow: auto; /* 스크롤 가능하도록 설정 */
+  }
+
+  #adventure-container::-webkit-scrollbar {
+    display: none; /* 스크롤 바 숨기기 */
+  }
+
+  .choice {
+    background-color: rgb(41, 25, 42); /* 배경색 변경 */
+    color: #ffffff; /* 텍스트 색상 흰색으로 변경 */
+    border: 1px solid #ffffff; /* 선택지가 눈에 띄도록 테두리 추가 */
+    line-height: 1.5; /* 선택지의 행간 조정 */
+  }
+
+  .choice:hover {
+    background-color: #5a375a; /* 선택시 배경색 조금 더 밝게 */
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  body {
+    font-size: 20px; /* 데스크탑에서 폰트 크기 증가 */
+    overflow: auto; /* 스크롤 가능하도록 설정 */
+    line-height: 1.5; /* 데스크탑에서 행간 조정 */
   }
 }
