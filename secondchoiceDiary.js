@@ -6,24 +6,34 @@ let upchoice = () => [
   '이 방에서는 더 얻을 정보가 없다. 다른 곳을 향해 조사를 계속한다.',
 ];
 
-// 공통 선택지 핸들러 설정 함수
 function setDiaryPageHandlers(handlerFunction) {
   const choices = document.querySelectorAll('#adventure-container .choice');
   choices.forEach((choice, index) => {
-    choice.onclick = () => handlerFunction(index + 1);
+    // 핸들러 설정 시 로그 추가
+    console.log(`Setting handler for choice ${index + 1}`);
+    choice.onclick = () => {
+      console.log(`Choice ${index + 1} clicked`);
+      handlerFunction(index + 1);
+    };
   });
 }
 
-// 공통 처리 함수
 function handleDiaryStep(storyText, nextHandler, choices) {
   disableChoices(); // 선택지 비활성화
 
   // 선택지 업데이트
   updateChoices(choices);
 
+  // 기존 핸들러 제거
+  const choicesElements = document.querySelectorAll('#adventure-container .choice');
+  choicesElements.forEach((choice) => {
+    choice.onclick = null; // 기존 핸들러 제거
+  });
+
   // 대사 출력 후 핸들러 설정
   typeWriter(storyText, 0, function () {
-    setDiaryPageHandlers(nextHandler);
+    console.log('Setting next handler');
+    setDiaryPageHandlers(nextHandler); // 다음 핸들러 설정
     enableChoices(); // 선택지 활성화
   });
 }
@@ -47,7 +57,7 @@ function handleDiaryNextChoice(choice) {
     ]);
   } else if (choice === 2) {
     const storyText = '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.';
-    handleDiaryStep(storyText, setSecondChoiceHandlers, upchoice());
+    handleDiaryStep(storyText, upchoice());
   }
 }
 
