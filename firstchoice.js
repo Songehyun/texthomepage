@@ -31,6 +31,7 @@ function chooseAdventure(choice) {
     storyText =
       '당신은 개발자라고 쓰여진 방을 찾았다. 방문을 열고 들어가니 홈페이지 개발자에 대한 다양한 정보들이 있었다.';
 
+    // 선택지 업데이트
     updateChoices([
       '가장 눈에 띄는 서류를 조사한다.',
       '개발자의 일기를 조사한다.',
@@ -38,19 +39,15 @@ function chooseAdventure(choice) {
       '이 방에서는 더 얻을 정보가 없다. 다른 곳을 향해 조사를 계속한다.',
     ]);
 
+    // 대사 출력 후 핸들러 설정
     typeWriter(storyText, 0, function () {
-      console.log('Choice 4 typing complete.');
       setSecondChoiceHandlers(); // script.js에서 정의된 핸들러 설정
     });
 
     return; // 선택지 업데이트 후 종료
   }
 
-  if (window.typingTimeout) {
-    clearTimeout(window.typingTimeout);
-    window.typingTimeout = null;
-  }
-
+  // 대사 출력 후 핸들러 설정
   typeWriter(storyText, 0, function () {
     console.log('First choice typing complete.');
   });
