@@ -39,7 +39,7 @@ body {
 
 #adventure-container {
   width: 60%;
-  height: 80%; /* 높이를 80%로 지정 */
+  height: 60%; /* 높이를 80%로 지정 */
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
@@ -57,8 +57,6 @@ body {
 }
 
 .choice {
-  margin-top: auto; /* 선택지를 컨테이너 하단으로 이동 */
-  margin-bottom: 10px; /* 하단에 약간의 마진 추가 */
   padding: 10px;
   background-color: #f0f0f0;
   border-radius: 5px;
@@ -66,6 +64,11 @@ body {
   transition: background-color 0.3s;
   user-select: none;
   line-height: 1.5;
+  margin-bottom: 10px; /* 마지막 선택지에만 5px 하단 마진 적용 */
+}
+
+.choice:last-child {
+  margin-bottom: 5px; /* 마지막 선택지에만 5px 하단 마진 적용 */
 }
 
 .choice:hover {
@@ -76,6 +79,7 @@ body {
   margin-bottom: 10px; /* 하단 마진을 약간 추가 */
   user-select: none;
   line-height: 1.5;
+  flex-grow: 1; /* 스토리 텍스트가 남은 공간을 채우도록 설정 */
 }
 
 @media only screen and (max-width: 768px) {
@@ -108,7 +112,6 @@ body {
     overflow: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* 대사와 선택지를 상단과 하단에 배치 */
   }
 
   #adventure-container::-webkit-scrollbar {
@@ -120,8 +123,10 @@ body {
     color: #ffffff;
     border: 1px solid #ffffff;
     font-size: 15px;
-    margin-bottom: 10px; /* 하단에 약간의 마진 추가 */
-    line-height: 1.5;
+  }
+
+  .choice:last-child {
+    margin-bottom: 5px; /* 마지막 선택지에만 5px 하단 마진 적용 */
   }
 
   .choice:hover {
@@ -131,6 +136,7 @@ body {
   #story-text {
     font-size: 17px;
     margin-bottom: 10px; /* 하단 마진 추가 */
+    flex-grow: 1; /* 스토리 텍스트가 남은 공간을 채우도록 설정 */
   }
 }
 
