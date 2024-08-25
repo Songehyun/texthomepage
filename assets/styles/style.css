@@ -109,11 +109,16 @@ body {
     background-color: rgb(41, 25, 42);
     color: #ffffff;
     border: 1px solid #ffffff;
+    font-size: 15px; /* 기존에서 2px 줄여서 설정 */
     line-height: 1.5;
   }
 
   .choice:hover {
     background-color: #5a375a;
+  }
+
+  #story-text {
+    font-size: 17px; /* 기존에서 2px 증가 */
   }
 }
 
