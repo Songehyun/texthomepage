@@ -4,7 +4,7 @@ function handleSecondChoice(choice) {
   let storyText;
   if (choice === 1) {
     storyText =
-      '당신은 서류를 집어들고 읽어보기로 했다.<br>이름:송이현<br>나이:30<br>좋아하는 음식:텐동<br>싫어하는 음식:신것, 매운것, 비린것<br>몸무게...당신은 더이상 개발자에 대하여 알고 싶지 않아졌기에 다른곳으로 눈을 돌렸다';
+      '당신은 서류를 집어들고 읽어보기로 했다.<br>이름:송이현<br>나이:30<br>좋아하는 음식:텐동<br>싫어하는 음식:신것, 매운것, 비린것<br>당신은 더이상 개발자에 대하여 알고 싶지 않아졌기에 다른곳으로 눈을 돌렸다';
   } else if (choice === 2) {
     handleDiaryChoice();
     return;

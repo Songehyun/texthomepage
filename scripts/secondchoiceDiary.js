@@ -46,7 +46,7 @@ function handleDiaryStep(storyText, nextHandler, choices) {
 
 function handleDiaryChoice() {
   const storyText =
-    '개발자의 일기를 조사한다. 당신은 일기를 읽기 시작했다. <br>"매일 기록하는건 중요하다" 일기에 첫 부분에 매번 적혀있다. <br>아무래도 이 개발자는 기록하는건 좋아하지만 굉장한 악필인 듯 하다.';
+    '개발자의 일기를 조사한다. 당신은 일기를 읽기 시작했다. <br>" 매일 기록하는건 중요하다" 일기에 첫 부분에 매번 적혀있다. <br>아무래도 이 개발자는 기록하는건 좋아하지만 굉장한 악필인 듯 하다.';
   handleDiaryStep(storyText, handleDiaryNextChoice, [
     '당신은 다음 페이지를 보기로 했다.',
     '당신은 일기를 덮고 다른 곳을 마저 조사하기로 했다.',
