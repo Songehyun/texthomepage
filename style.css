@@ -18,22 +18,38 @@ body {
   align-items: center;
   font-family: 'PFStardust', Arial, sans-serif;
   font-size: 18px;
-  line-height: 1.5; /* 행간 조정 */
+  line-height: 1.5;
+  position: relative; /* "EHCorporation" 버튼을 절대 위치로 배치하기 위해 설정 */
+}
+
+/* "EHCorporation" 버튼 스타일 */
+#home-button {
+  position: absolute;
+  top: 10px;
+  left: 10px; /* 데스크탑 환경에서 화면 최좌상단에 위치 */
+  padding: 5px 10px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 1000; /* 다른 요소들 위에 나타나도록 설정 */
+  user-select: none; /* 텍스트 선택 방지 */
 }
 
 #adventure-container {
   width: 60%;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* 반투명 배경 */
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  overflow: auto; /* 컨테이너 내부 스크롤 가능 */
-  max-height: 100vh; /* 최대 높이 설정 */
-  margin-top: 20px; /* 화면 상단과의 간격 확보 */
+  overflow: auto;
+  max-height: 100vh;
+  margin-top: 20px;
 }
 
 #adventure-container::-webkit-scrollbar {
-  display: none; /* 스크롤 바 숨기기 */
+  display: none;
 }
 
 .choice {
@@ -44,7 +60,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
   user-select: none;
-  line-height: 1.5; /* 선택지의 행간 조정 */
+  line-height: 1.5;
 }
 
 .choice:hover {
@@ -52,8 +68,8 @@ body {
 }
 
 #story-text {
-  user-select: none; /* 선택 방지 */
-  line-height: 1.5; /* 스토리 텍스트의 행간 조정 */
+  user-select: none;
+  line-height: 1.5;
 }
 
 @media only screen and (max-width: 768px) {
@@ -67,36 +83,44 @@ body {
     background-color: rgb(41, 25, 42);
   }
 
+  /* 모바일 환경에서 "EHCorporation" 버튼을 화면 최상단에 위치 */
+  #home-button {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   #adventure-container {
     width: 100%;
     padding: 15px;
-    background-color: rgb(41, 25, 42); /* 배경색 변경 */
-    color: #ffffff; /* 텍스트 색상 흰색으로 변경 */
+    background-color: rgb(41, 25, 42);
+    color: #ffffff;
     box-shadow: none;
     border-radius: 0;
-    overflow: auto; /* 스크롤 가능하도록 설정 */
+    overflow: auto;
   }
 
   #adventure-container::-webkit-scrollbar {
-    display: none; /* 스크롤 바 숨기기 */
+    display: none;
   }
 
   .choice {
-    background-color: rgb(41, 25, 42); /* 배경색 변경 */
-    color: #ffffff; /* 텍스트 색상 흰색으로 변경 */
-    border: 1px solid #ffffff; /* 선택지가 눈에 띄도록 테두리 추가 */
-    line-height: 1.5; /* 선택지의 행간 조정 */
+    background-color: rgb(41, 25, 42);
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    line-height: 1.5;
   }
 
   .choice:hover {
-    background-color: #5a375a; /* 선택시 배경색 조금 더 밝게 */
+    background-color: #5a375a;
   }
 }
 
 @media only screen and (min-width: 769px) {
   body {
-    font-size: 20px; /* 데스크탑에서 폰트 크기 증가 */
-    overflow: auto; /* 스크롤 가능하도록 설정 */
-    line-height: 1.5; /* 데스크탑에서 행간 조정 */
+    font-size: 20px;
+    overflow: auto;
+    line-height: 1.5;
   }
 }
