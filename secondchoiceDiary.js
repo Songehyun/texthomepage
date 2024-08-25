@@ -24,13 +24,12 @@ let closeD = (storyText = '당신은 일기를 덮고 다른 곳을 조사하기
 // 공통 선택지 복원 함수
 function resetToOriginalChoices(storyText) {
   updateChoices(upchoice());
-  setSecondChoiceHandlers();
+  setSecondChoiceHandlers(); // 사운드 재생 호출 없음
   enableChoices(); // 선택지 활성화
   typeWriter(storyText, 0, function () {
     console.log('Returned to original diary choices.');
   });
 }
-
 function setDiaryPageHandlers(handlerFunction) {
   const choices = document.querySelectorAll('#adventure-container .choice');
   choices.forEach((choice, index) => {
@@ -49,7 +48,7 @@ function handleDiaryStep(storyText, nextHandler, choices) {
 
   // 선택지 업데이트 및 핸들러 설정
   updateChoices(choices);
-  setDiaryPageHandlers(nextHandler); // 핸들러 설정 (사운드 재생은 선택지 클릭 시만)
+  setDiaryPageHandlers(nextHandler); // 사운드 재생은 선택지 클릭 시에만 발생
   enableChoices(); // 선택지 활성화
 
   // 대사 출력
@@ -77,7 +76,7 @@ function handleDiaryNextChoice(choice) {
     ]);
   } else if (choice === 2) {
     closeD;
-    resetToOriginalChoices(storyText);
+    resetToOriginalChoices(storyText); // 이곳에서도 playSelectSound 호출 없음
   }
 }
 
@@ -91,7 +90,7 @@ function handleDiaryNextPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     closeD;
-    resetToOriginalChoices(storyText);
+    resetToOriginalChoices(storyText); // 이곳에서도 playSelectSound 호출 없음
   }
 }
 
@@ -104,7 +103,7 @@ function handleDiaryThirdPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     closeD;
-    resetToOriginalChoices(storyText);
+    resetToOriginalChoices(storyText); // 이곳에서도 playSelectSound 호출 없음
   }
 }
 
@@ -117,7 +116,7 @@ function handleDiaryFourthPageChoice(choice) {
     ]);
   } else if (choice === 2) {
     closeD;
-    resetToOriginalChoices(storyText);
+    resetToOriginalChoices(storyText); // 이곳에서도 playSelectSound 호출 없음
   }
 }
 
@@ -125,9 +124,9 @@ function handleDiaryFinalPageChoice(choice) {
   if (choice === 1) {
     const storyText =
       '글귀가 적혀있다. <br>당신은 개발자의 일기를 전부 읽었다.<br>업적 : 남의 일기는 읽으면 안돼 를 획득했다';
-    resetToOriginalChoices(storyText);
+    resetToOriginalChoices(storyText); // 이곳에서도 playSelectSound 호출 없음
   } else if (choice === 2) {
     closeD;
-    resetToOriginalChoices(storyText);
+    resetToOriginalChoices(storyText); // 이곳에서도 playSelectSound 호출 없음
   }
 }
