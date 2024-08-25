@@ -10,13 +10,15 @@ function typeWriter(text, i, fnCallback) {
     storyTextElement.blur();
     window.typingTimeout = setTimeout(function () {
       typeWriter(text, i + 1, fnCallback);
-    }, 5); // 속도 조절
+    }, 10); // 속도 조절
   } else if (typeof fnCallback === 'function') {
     fnCallback();
   }
 }
 
 function chooseAdventure(choice) {
+  disableChoices(); // 선택지 비활성화
+
   let storyText;
   if (choice === 1) {
     storyText =
@@ -26,7 +28,7 @@ function chooseAdventure(choice) {
       '개발자의 이름, 개발자의 나이, 개발자가 좋아하는것... <br>통찰력이 뛰어난 당신은 단번에 이 홈페이지가 이 개발자를 소개하는 홈페이지라는 것을 파악했다.';
   } else if (choice === 3) {
     storyText =
-      '왜 텍스트 어드벤쳐인지 곰곰히 생각한다. 아무래도 개발자는 예전에 폴더폰을 이용해 텍스트 어드벤처를 즐겨 했던 모양이다. <br>Young하고 MZ한 당신은 폴더폰이 뭔지 검색해보기로 했다.';
+      '왜 텍스트 어드벤쳐인지 곰곰히 생각한다. <br>아무래도 개발자는 예전에 폴더폰을 이용해 텍스트 어드벤처를 즐겨 했던 모양이다. <br>당신은 폴더폰이 뭔지 검색해보기로 했다.';
   } else if (choice === 4) {
     storyText =
       '당신은 개발자라고 쓰여진 방을 찾았다. 방문을 열고 들어가니 홈페이지 개발자에 대한 다양한 정보들이 있었다.';
@@ -42,6 +44,7 @@ function chooseAdventure(choice) {
     // 대사 출력 후 핸들러 설정
     typeWriter(storyText, 0, function () {
       setSecondChoiceHandlers(); // script.js에서 정의된 핸들러 설정
+      enableChoices(); // 선택지 활성화
     });
 
     return; // 선택지 업데이트 후 종료
@@ -50,6 +53,7 @@ function chooseAdventure(choice) {
   // 대사 출력 후 핸들러 설정
   typeWriter(storyText, 0, function () {
     console.log('First choice typing complete.');
+    enableChoices(); // 선택지 활성화
   });
 }
 
@@ -57,6 +61,22 @@ function setInitialChoiceHandlers() {
   const choices = document.querySelectorAll('#adventure-container .choice');
   choices.forEach((choice, index) => {
     choice.onclick = () => chooseAdventure(index + 1);
+  });
+}
+
+// 선택지 비활성화
+function disableChoices() {
+  const choices = document.querySelectorAll('#adventure-container .choice');
+  choices.forEach((choice) => {
+    choice.style.pointerEvents = 'none';
+  });
+}
+
+// 선택지 활성화
+function enableChoices() {
+  const choices = document.querySelectorAll('#adventure-container .choice');
+  choices.forEach((choice) => {
+    choice.style.pointerEvents = 'auto';
   });
 }
 
