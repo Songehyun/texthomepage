@@ -3,6 +3,7 @@ import { playSelectSound } from '../assets/functions/playSelectSound';
 import { disableChoices } from '../assets/functions/disableChoices';
 import { enableChoices } from '../assets/functions/enableChoices';
 import { updateChoices } from '../assets/functions/updateChoices';
+import { setSecondChoiceHandlers } from '../assets/functions/setSecondChoiceHandlers';
 
 export function typeWriter(text: string, i: number, fnCallback?: () => void): void {
   const storyTextElement = document.getElementById('story-text');
