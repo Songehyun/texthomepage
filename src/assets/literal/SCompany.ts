@@ -22,6 +22,8 @@ export const noticeChoices = ['회사공지', '공시자료', '돌아가기'];
 
 export const publicDataChoices = ['공지 1', '공지 2', '공지 3', '공지 4', '돌아가기'];
 
+export const publicChoices = ['공시 1', '공시 2', '공시 3', '공시 4', '돌아가기'];
+
 export const noticeTexts = [
   '이 홈페이지를 만드는 데 소요된 시간은 두자리수 입니다.',
   '개발자의 만족도는 5 점만점 중 5 점입니다.',

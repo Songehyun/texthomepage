@@ -8,6 +8,7 @@ import {
   companyChoices,
   noticeChoices,
   publicDataChoices,
+  publicChoices,
   noticeTexts,
   publicDataTexts,
 } from '../assets/literal/SCompany';
@@ -87,13 +88,13 @@ function handleCompanyNoticeSelection(choice: number): void {
 }
 
 function showCompanyNotices(): void {
-  updateChoices(noticeChoices);
+  updateChoices(publicDataChoices); // 공지 선택 시
   setNoticeHandlers('공지');
   enableChoices(); // 선택지 활성화
 }
 
 function showPublicData(): void {
-  updateChoices(publicDataChoices);
+  updateChoices(publicChoices); // 공시 선택 시
   setNoticeHandlers('공시');
   enableChoices(); // 선택지 활성화
 }
